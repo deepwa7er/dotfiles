@@ -1,8 +1,9 @@
-# font-family = TX-02-Trial
+font-family = Berkeley Mono
 # font-family = Hack Nerd Font
-font-family = Paper Mono
+# font-family = Paper Mono
 # font-family = JetBrains Mono
-font-size = 14
+# font-family = Courier New
+font-size = 20
 cursor-style = block
 # window-padding-x = 4
 # window-padding-y = 4
@@ -20,3 +21,5 @@ keybind = opt+6=goto_tab:6
 keybind = opt+7=goto_tab:7
 keybind = opt+8=goto_tab:8
 keybind = opt+9=last_tab
+
+macos-option-as-alt = left
