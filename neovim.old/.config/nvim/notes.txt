@@ -1,2 +1,0 @@
-don't add the plugin folder with the packer compiled file to source control
-go to doc folder on plugin repo for comprehensive info

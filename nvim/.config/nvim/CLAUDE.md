@@ -2,34 +2,50 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## What This Is
+## Overview
 
-A personal Neovim configuration based on kickstart.nvim, managed as part of a larger dotfiles repo (`~/dotfiles/`) using GNU Stow. The nvim stow package symlinks `nvim/.config/nvim/` to `~/.config/nvim/`.
+Minimal Neovim configuration written in Lua. Uses **native Neovim package management** (`:h packages`) — no third-party plugin manager. The sole installed plugin is `nvim-treesitter`.
 
-## Architecture
+## Structure
 
-Everything flows from `init.lua` — a single-file config that sets options, keymaps, autocommands, and configures all plugins via lazy.nvim in one `require('lazy').setup({...})` call.
+- `init.lua` — single entry point; all personal config lives here
+- `pack/plugins/start/` — auto-loaded plugins (native packaging)
+- `pack/plugins/start/nvim-treesitter/` — the only installed plugin
 
-### Key structural decisions:
-- **Leader key**: Space
-- **Plugin manager**: lazy.nvim (`:Lazy` to manage, `:Lazy update` to update)
-- **LSP**: nvim-lspconfig + Mason (`:Mason` to manage installed servers/tools). Servers are declared in the `servers` table inside the lspconfig config function. Mason auto-installs them.
-- **Completion**: blink.cmp with LuaSnip for snippets
-- **Formatting**: conform.nvim — formats on save (with `lsp_format = 'fallback'`), disabled for C/C++. Lua uses `stylua`.
-- **Colorscheme**: Custom monochrome theme via colorbuddy.nvim, defined in `lua/colors/monochrome.lua`. Transparent background (guibg=none).
-- **Fuzzy finder**: Telescope (fzf-native + ui-select extensions)
-- **Statusline**: mini.statusline
-- **Treesitter**: auto-install enabled
+## Key Design Decisions
 
-### Extension points (currently unused):
-- `lua/custom/plugins/*.lua` — for adding plugins without touching init.lua (the `{ import = 'custom.plugins' }` line in init.lua is currently commented out)
-- `lua/kickstart/plugins/` — bundled optional plugins (debug, indent_line, lint, autopairs, neo-tree, gitsigns keymaps) — all currently commented out in the require lines near the bottom of init.lua
+- **No plugin manager**: plugins are git-cloned into `pack/plugins/start/` and load automatically
+- **Single-file config**: all options, keymaps, and autocmds are in `init.lua`
+- **Treesitter-first**: syntax highlighting is enabled globally via autocmd; function navigation uses inline Treesitter queries rather than external plugins
+- **Indentation**: 4 spaces by default; 2 spaces for `lua`, `html`, `js`, `jsx`, `ts`, `tsx`
 
-### File-type specific settings:
-- HTML, CSS, JS, TS, JSX, TSX: 2-space indentation (autocommand in init.lua)
+## Keymaps
 
-## Checking Health
+| Key | Mode | Action |
+|-----|------|--------|
+| `<S-l>` / `<S-h>` | Normal | Next / previous buffer |
+| `]f` / `[f` | Normal | Jump to next / previous function (Treesitter) |
+| `<space><space>x` | Normal | Source current file |
+| `<space>x` | Normal/Visual | Execute current line / selection as Lua |
 
+Function navigation supports: Rust, Python, C, Lua, JavaScript, TypeScript.
+
+## Working with nvim-treesitter
+
+The plugin has its own Makefile for development:
+
+```sh
+cd pack/plugins/start/nvim-treesitter
+
+make lua      # Format and lint Lua code (StyLua + lua-language-server)
+make query    # Format, lint, and check Tree-sitter query files
+make tests    # Run test suite (plentest.nvim, headless Neovim)
+make docs     # Regenerate docs from README
+make all      # Run all checks
 ```
-:checkhealth kickstart
-```
+
+The Makefile downloads its own toolchain (Neovim nightly, luals, StyLua, ts_query_ls, plentest.nvim) into a local `deps/` directory — no system-level installs needed.
+
+## Adding Plugins
+
+Clone the plugin repo into `pack/plugins/start/<plugin-name>/`. It will load automatically on next Neovim startup. No registration required.
