@@ -31,5 +31,15 @@ setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE
 # Completion
 autoload -Uz compinit && compinit
 
+# Fuzzy finder (key bindings + completion)
+if command -v fzf >/dev/null 2>&1; then
+    eval "$(fzf --zsh)"
+fi
+
+# Directory jumper (provides `z` and `zi`)
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
+
 alias ls='ls --color=auto'
 alias python='python3'
