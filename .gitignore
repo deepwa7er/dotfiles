@@ -1,3 +1,4 @@
 # this folder is created by packer to contain packer_compiled.lua
 plugin/
 .DS_Store
+*.rpm
