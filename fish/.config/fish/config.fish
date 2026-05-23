@@ -45,3 +45,5 @@ if status is-interactive
     alias ls "eza"
 end
 /Users/deepwater/.local/bin/mise activate fish | source
+fish_add_path /Users/deepwater/.config/herd-lite/bin
+fish_add_path /Users/deepwater/.config/composer/vendor/bin
