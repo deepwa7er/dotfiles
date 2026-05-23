@@ -22,6 +22,9 @@ brew_packages=(
 )
 
 install_fedora() {
+    # yazi and lazygit aren't in default Fedora repos; pull from COPRs
+    sudo dnf copr enable -y atim/lazygit
+    sudo dnf copr enable -y lihaohong/yazi
     sudo dnf install -y "${fedora_packages[@]}"
 }
 

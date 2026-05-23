@@ -1,0 +1,13 @@
+[user]
+	email = hello@joemafrici.com
+	name = Joe Mafrici
+[core]
+	editor = vim
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+[merge]
+	conflictStyle = zdiff3
