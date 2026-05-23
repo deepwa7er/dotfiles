@@ -23,3 +23,5 @@ keybind = opt+8=goto_tab:8
 keybind = opt+9=last_tab
 
 macos-option-as-alt = left
+
+command = /usr/bin/zsh
