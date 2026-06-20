@@ -47,3 +47,17 @@ end
 /Users/deepwater/.local/bin/mise activate fish | source
 fish_add_path /Users/deepwater/.config/herd-lite/bin
 fish_add_path /Users/deepwater/.config/composer/vendor/bin
+
+# Start every interactive terminal inside yazi.
+# Guard on YAZI_LEVEL so dropping to a shell from inside yazi doesn't relaunch it.
+if status is-interactive; and not set -q YAZI_LEVEL
+    y
+end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/deepwater/.lmstudio/bin
+# End of LM Studio CLI section
+
+# Let `tugboat fleet …` find the fleet manifest from any directory.
+set -gx TUGBOAT_FLEET $HOME/code/tugboat/fleet.toml
+
