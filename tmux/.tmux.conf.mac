@@ -1,2 +1,2 @@
-set-option -g default-shell /opt/homebrew/bin/fish
-set-option -g default-command "/opt/homebrew/bin/fish"
+set-option -g default-shell /bin/zsh
+set-option -g default-command "/bin/zsh"

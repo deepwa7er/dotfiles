@@ -25,4 +25,7 @@ keybind = opt+9=last_tab
 
 macos-option-as-alt = left
 
-command = /usr/bin/zsh
+# Launch zsh regardless of login shell. Not an absolute path on purpose:
+# zsh lives at /usr/bin/zsh on Fedora but /bin/zsh on macOS, and ghostty
+# resolves bare commands via PATH.
+command = zsh

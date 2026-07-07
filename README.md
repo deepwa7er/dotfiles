@@ -29,12 +29,12 @@ script do it.
 | Package    | Contents                                                          |
 | ---------- | ----------------------------------------------------------------- |
 | `eza/`     | eza theme (USGC-RETICLE); needs `EZA_CONFIG_DIR` on macOS         |
-| `fish/`    | Fish shell config (used on macOS)                                 |
+| `fish/`    | Fish shell config (legacy — zsh is the shell on both OSes now)    |
 | `ghostty/` | Ghostty terminal config                                           |
 | `git/`     | `.gitconfig` — user, editor, and delta as the pager               |
 | `nvim/`    | Neovim config (kickstart-based) + `.luarc.json` for lua_ls        |
 | `tmux/`    | tmux config; `.tmux.conf.mac` sourced via `if-shell` on Darwin    |
-| `zsh/`     | Zsh config (used on Linux)                                        |
+| `zsh/`     | Zsh config (both Fedora and macOS)                                |
 
 ## Manual step
 
