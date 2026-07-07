@@ -1,0 +1,112 @@
+# USGC-RETICLE eza theme — matched to the U.S. Graphics Company terminal
+# theme (github.com/usgraphics/usgc-themes) as ported to Ghostty.
+#
+# Named ANSI colors pass through RETICLE's remapped palette:
+#   Green/Yellow -> USGC amber   Cyan -> blue   Magenta -> pink
+# so "Green" below deliberately renders amber. File kinds follow USGC's own
+# LSCOLORS from their prompt file: bold-cyan dirs, magenta symlinks, red
+# executables. Everything else stays Default (the phosphor green foreground)
+# or a quoted hex from the theme: dim green #00753d, grays #666666/#494747.
+
+colourful: true
+
+filekinds:
+  normal: {foreground: Default}
+  directory: {foreground: Cyan, is_bold: true}
+  symlink: {foreground: Magenta, is_bold: true}
+  pipe: {foreground: Yellow, is_bold: true}
+  block_device: {foreground: Yellow}
+  char_device: {foreground: Yellow}
+  socket: {foreground: Green, is_bold: true}
+  special: {foreground: Yellow}
+  executable: {foreground: Red, is_bold: true}
+  mount_point: {foreground: Cyan, is_bold: true, is_underline: true}
+
+perms:
+  user_read: {foreground: Default}
+  user_write: {foreground: Default}
+  user_execute_file: {foreground: Default, is_bold: true}
+  user_execute_other: {foreground: Default}
+  group_read: {foreground: Default}
+  group_write: {foreground: Default}
+  group_execute: {foreground: Default}
+  other_read: {foreground: Default}
+  other_write: {foreground: Default}
+  other_execute: {foreground: Default}
+  special_user_file: {foreground: Magenta}
+  special_other: {foreground: Magenta}
+  attribute: {foreground: "#494747"}
+
+size:
+  major: {foreground: Yellow, is_bold: true}
+  minor: {foreground: Yellow}
+  number_byte: {foreground: Yellow}
+  number_kilo: {foreground: Yellow}
+  number_mega: {foreground: Yellow}
+  number_giga: {foreground: Yellow}
+  number_huge: {foreground: Yellow}
+  unit_byte: {foreground: "#00753d"}
+  unit_kilo: {foreground: "#00753d"}
+  unit_mega: {foreground: "#00753d"}
+  unit_giga: {foreground: "#00753d"}
+  unit_huge: {foreground: "#00753d"}
+
+users:
+  user_you: {foreground: Default, is_bold: true}
+  user_root: {foreground: Red}
+  user_other: {foreground: "#666666"}
+  group_yours: {foreground: Default}
+  group_other: {foreground: "#666666"}
+  group_root: {foreground: Red}
+
+links:
+  normal: {foreground: Default}
+  multi_link_file: {foreground: Yellow}
+
+git:
+  new: {foreground: Default}
+  modified: {foreground: Yellow}
+  deleted: {foreground: Red}
+  renamed: {foreground: Cyan}
+  typechange: {foreground: Magenta}
+  ignored: {foreground: "#494747"}
+  conflicted: {foreground: Red, is_bold: true}
+
+git_repo:
+  branch_main: {foreground: Default}
+  branch_other: {foreground: Yellow}
+  git_clean: {foreground: Default}
+  git_dirty: {foreground: Red}
+
+security_context:
+  colon: {foreground: "#494747"}
+  user: {foreground: Default}
+  role: {foreground: Default}
+  typ: {foreground: "#666666"}
+  range: {foreground: "#666666"}
+
+file_type:
+  image: {foreground: Default}
+  video: {foreground: Default}
+  music: {foreground: Default}
+  lossless: {foreground: Default}
+  crypto: {foreground: Default}
+  document: {foreground: Default}
+  compressed: {foreground: Yellow}
+  temp: {foreground: "#666666"}
+  compiled: {foreground: "#666666"}
+  build: {foreground: Default, is_bold: true}
+  source: {foreground: Default}
+
+punctuation: {foreground: "#494747"}
+date: {foreground: "#00753d"}
+inode: {foreground: "#666666"}
+blocks: {foreground: "#666666"}
+header: {foreground: Default, is_underline: true}
+octal: {foreground: "#666666"}
+flags: {foreground: Default}
+
+symlink_path: {foreground: "#00753d"}
+control_char: {foreground: Red}
+broken_symlink: {foreground: Red, is_bold: true}
+broken_path_overlay: {foreground: Default, is_underline: true}

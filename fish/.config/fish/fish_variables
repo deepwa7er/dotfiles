@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export ANDROID_HOME:/Users/deepwater/Library/Android/sdk
+SETUVAR --export DRYDOCK_URL:https\x3a//drydock\x2einternal\x2edeepwa7er\x2ecom
 SETUVAR EDITOR:nvim
 SETUVAR --export JAVA_HOME:/Applications/Android\x20Studio\x2eapp/Contents/jbr/Contents/Home
 SETUVAR LASTFM_API_KEY:97c8a5095f281b00bb647d50e7f66020

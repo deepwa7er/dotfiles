@@ -42,6 +42,9 @@ if status is-interactive
 
     fish_vi_key_bindings
 
+    # eza looks in ~/Library/Application Support on macOS unless told otherwise
+    set -gx EZA_CONFIG_DIR $HOME/.config/eza
+
     alias ls "eza"
 end
 /Users/deepwater/.local/bin/mise activate fish | source
@@ -59,5 +62,5 @@ set -gx PATH $PATH /Users/deepwater/.lmstudio/bin
 # End of LM Studio CLI section
 
 # Let `tugboat fleet …` find the fleet manifest from any directory.
-set -gx TUGBOAT_FLEET $HOME/code/tugboat/fleet.toml
+set -gx TUGBOAT_FLEET $HOME/code/fleet/fleet.toml
 

@@ -28,6 +28,7 @@ script do it.
 
 | Package    | Contents                                                          |
 | ---------- | ----------------------------------------------------------------- |
+| `eza/`     | eza theme (USGC-RETICLE); needs `EZA_CONFIG_DIR` on macOS         |
 | `fish/`    | Fish shell config (used on macOS)                                 |
 | `ghostty/` | Ghostty terminal config                                           |
 | `git/`     | `.gitconfig` — user, editor, and delta as the pager               |

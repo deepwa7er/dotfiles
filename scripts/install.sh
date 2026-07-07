@@ -21,7 +21,7 @@ brew_packages=(
     btop jq httpie
 )
 
-stow_packages=(zsh tmux nvim ghostty fish git)
+stow_packages=(zsh tmux nvim ghostty fish git eza)
 
 failed_packages=()
 

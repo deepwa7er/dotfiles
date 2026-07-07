@@ -1,0 +1,37 @@
+# USGC-RETICLE — U.S. Graphics Company dark scheme (part no. 5200-020)
+# Ported from USGC-RETICLE-IT.itermcolors (github.com/usgraphics/usgc-themes).
+# Source colors are Display P3; these values are converted to sRGB.
+
+background = #000000
+foreground = #009d5f
+
+cursor-color = #858e97
+cursor-text = #ffffff
+
+selection-background = #000581
+selection-foreground = #ffc200
+
+# black
+palette = 0=#262626
+palette = 8=#494747
+# red
+palette = 1=#e00000
+palette = 9=#e00000
+# green (USGC renders ANSI green as amber)
+palette = 2=#ffc200
+palette = 10=#f4ba00
+# yellow
+palette = 3=#ffc200
+palette = 11=#ffc200
+# blue (bright blue is USGC orange)
+palette = 4=#723df9
+palette = 12=#ff7321
+# magenta
+palette = 5=#ff208f
+palette = 13=#ff208f
+# cyan
+palette = 6=#0079ff
+palette = 14=#0078ff
+# white
+palette = 7=#ffffff
+palette = 15=#fefeff

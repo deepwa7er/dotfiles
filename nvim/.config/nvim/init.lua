@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.cmd('colorscheme arctic')
+vim.cmd('colorscheme reticle')
 
 vim.o.number = true
 vim.o.relativenumber = true
