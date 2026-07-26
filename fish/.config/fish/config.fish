@@ -64,3 +64,6 @@ set -gx PATH $PATH /Users/deepwater/.lmstudio/bin
 # Let `tugboat fleet …` find the fleet manifest from any directory.
 set -gx TUGBOAT_FLEET $HOME/code/fleet/fleet.toml
 
+
+# kimi-code
+fish_add_path -g "/Users/deepwater/.kimi-code/bin"

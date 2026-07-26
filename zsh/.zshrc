@@ -5,8 +5,8 @@
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 export PATH=$HOME/.dotfiles/scripts:$PATH
 export PATH=$HOME/go/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.kimi-code/bin:$PATH
 
 if [[ $(uname) == Darwin ]]; then
     # Homebrew
@@ -17,6 +17,15 @@ if [[ $(uname) == Darwin ]]; then
     # LM Studio CLI (lms)
     export PATH=$PATH:$HOME/.lmstudio/bin
 fi
+
+# Rust is managed by rustup, never by a system package manager. Only rustup's
+# shims honor a repo's rust-toolchain.toml pin and can install cross-compilation
+# targets (the fleet builds x86_64-unknown-linux-musl for the VPS).
+#
+# This MUST stay after the Homebrew block: Homebrew prepends itself to PATH, so
+# with this line earlier in the file a brew-installed rust would shadow rustup —
+# builds then silently ignore the toolchain pin and cannot cross-compile.
+export PATH=$HOME/.cargo/bin:$PATH
 
 # Runtime version manager (provides ruby, node, etc.)
 if [ -x "$HOME/.local/bin/mise" ]; then
@@ -107,10 +116,3 @@ function y() {
     fi
     rm -f -- "$tmp"
 }
-
-# Start every interactive terminal inside yazi (macOS habit; drop the uname
-# guard to adopt it on Linux too). YAZI_LEVEL guards against relaunching
-# when dropping to a subshell from inside yazi.
-if [[ $(uname) == Darwin ]] && [[ -z $YAZI_LEVEL ]] && command -v yazi >/dev/null 2>&1; then
-    y
-fi
